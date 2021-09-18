@@ -43,3 +43,4 @@ def test_auth(client):
     assert response.status_code == 200
     email = get_details.json['email']
     assert email == EMAIL
+    assert False
