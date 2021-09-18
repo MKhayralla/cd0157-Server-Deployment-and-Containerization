@@ -38,3 +38,8 @@ def test_auth(client):
     assert response.status_code == 200
     token = response.json['token']
     assert token is not None
+    get_details = client.get('/contents',
+                           headers={'Authorization' : 'Bearer {}'.format(token)})
+    assert response.status_code == 200
+    email = get_details.json['email']
+    assert email == EMAIL
